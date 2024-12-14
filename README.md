@@ -277,3 +277,185 @@ DELIMITER ;
 
 CALL read_messages(2);
 ```
+
+## 18. Procedure to View Messages
+```sql
+CREATE VIEW message_view AS
+SELECT 
+    m.message_id,
+    m.sender_id,
+    s.name AS sender_name,
+    m.receiver_id,
+    r.name AS receiver_name,
+    m.message_text,
+    m.sent_at,
+    m.is_read
+FROM 
+    messages m
+JOIN 
+    user s ON m.sender_id = s.user_id
+JOIN 
+    user r ON m.receiver_id = r.user_id
+ORDER BY 
+    m.sent_at DESC;
+```
+
+## 19. Message Table
+Retrieve all messages from the `message_view`:
+```sql
+SELECT * FROM message_view;
+```
+
+## 20. View Messages for a Specific User
+Get messages where `user_id = 1` is either the sender or receiver:
+```sql
+SELECT * 
+FROM message_view
+WHERE sender_id = 1 OR receiver_id = 1;
+```
+
+## 21. Procedure to Read Messages
+This procedure updates unread messages for a specific receiver and retrieves them:
+```sql
+DELIMITER //
+CREATE PROCEDURE read_messages(
+    IN receiver_id INT
+)
+BEGIN
+    -- Update all unread messages for the receiver to is_read = 1
+    UPDATE messages
+    SET is_read = 1
+    WHERE receiver_id = receiver_id AND is_read = 0;
+
+    -- Retrieve the updated messages for the receiver
+    SELECT message_id, sender_id, receiver_id, message_text, sent_at, is_read
+    FROM messages
+    WHERE receiver_id = receiver_id
+    ORDER BY sent_at DESC;
+END;
+//
+DELIMITER ;
+```
+Call the procedure:
+```sql
+CALL read_messages(2);
+```
+
+## 22. Procedure to Give Course Review
+This procedure allows a user to review a course if eligible:
+```sql
+DELIMITER //
+CREATE PROCEDURE give_course_review(
+    IN user_id INT,
+    IN course_id INT,
+    IN rating INT,
+    IN review_text TEXT
+)
+BEGIN
+    -- Check if the user is eligible to review (e.g., completed the course)
+    IF EXISTS (
+        SELECT 1
+        FROM transactions
+        WHERE user_id = user_id AND transaction_type = 'Earned' AND course_id = course_id
+    ) THEN
+        -- Insert the review into the reviews table
+        INSERT INTO reviews (user_id, course_id, rating, review_text)
+        VALUES (user_id, course_id, rating, review_text);
+    ELSE
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'User is not eligible to review this course';
+    END IF;
+END;
+//
+DELIMITER ;
+```
+Call the procedure:
+```sql
+CALL give_course_review(1, 3, 5, 'Excellent course! Very informative.');
+CALL give_course_review(2, 5, 4, 'Good course, but could be improved.');
+```
+
+## 23. Procedure to Update Ranking
+This procedure calculates user rankings based on reviews and reports:
+```sql
+DELIMITER //
+CREATE PROCEDURE update_user_ranking()
+BEGIN
+    -- Loop through all users to calculate ranking scores
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE userId INT;
+    DECLARE userCursor CURSOR FOR SELECT user_id FROM user;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    OPEN userCursor;
+
+    userLoop: LOOP
+        FETCH userCursor INTO userId;
+        IF done THEN
+            LEAVE userLoop;
+        END IF;
+
+        -- Calculate ranking score based on reviews
+        SET @positive_score = (
+            SELECT COALESCE(AVG(rating) * 10, 0)
+            FROM reviews
+            WHERE user_id = userId
+        );
+
+        -- Calculate penalty based on reports
+        SET @negative_score = (
+            SELECT COUNT(*)
+            FROM reports
+            WHERE reported_user_id = userId
+        );
+
+        -- Update the ranking score
+        SET @final_score = GREATEST(@positive_score - (@negative_score * 5), 0);
+
+        -- Update the user's ranking score in the user table
+        UPDATE user
+        SET ranking_score = @final_score
+        WHERE user_id = userId;
+
+        -- Assign rank based on the ranking score
+        UPDATE user
+        SET rank = CASE
+            WHEN ranking_score >= 300 THEN 'Expert'
+            WHEN ranking_score >= 200 THEN 'Advanced'
+            WHEN ranking_score >= 100 THEN 'Intermediate'
+            ELSE 'Beginner'
+        END
+        WHERE user_id = userId;
+    END LOOP;
+
+    CLOSE userCursor;
+END;
+//
+DELIMITER ;
+```
+Call the procedure:
+```sql
+CALL update_user_ranking();
+```
+
+## 24. View Users According to Ranking Score
+View all users with their rankings:
+```sql
+SELECT * FROM user_ranking_view;
+```
+Retrieve the top 5 users:
+```sql
+SELECT * 
+FROM user_ranking_view
+LIMIT 5;
+```
+Retrieve users with the rank of 'Expert':
+```sql
+SELECT * 
+FROM user_ranking_view
+WHERE rank = 'Expert';
+```
+
+---
+
+
