@@ -1,0 +1,80 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #3d8a5a85;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.notification-container {
+    width: 90%;
+    max-width: 900px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.header {
+    background-color: #2ea154;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.notifications {
+    padding: 20px;
+}
+
+.notification-section {
+    margin-bottom: 20px;
+}
+
+.notification-section h2 {
+    font-size: 20px;
+    color: #17cc20;
+    margin-bottom: 10px;
+}
+
+.notification-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.notification-section li {
+    background: #f4f6f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.notification-section li:hover {
+    background: #eef4fc;
+}
+
+.notification-section p {
+    margin: 5px 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.notification-section strong {
+    color: #555;
+}

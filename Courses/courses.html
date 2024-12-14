@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Finder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Available Courses</h1>
+  </header>
+  <main>
+    <section class="controls">
+      <h2>Find Your Course</h2>
+      <input id="search-input" type="text" placeholder="Search for courses..." />
+      <select id="filter-select">
+        <option value="all">All Categories</option>
+        <option value="Web Development">Web Development</option>
+        <option value="Graphics Design">Graphics Design</option>
+        <option value="Cyber Security">Cyber Security</option>
+        <option value="AI">AI</option>
+        <option value="Programming">Programming</option>
+        <option value="Operating System">Operating System</option>
+        <option value="Data Science">Data Science</option>
+        <option value="Mobile App Development">Mobile App Development</option>
+        <option value="Game Development">Game Development</option>
+        <option value="Cloud Computing">Cloud Computing</option>
+        <option value="DevOps">DevOps</option>
+        <option value="Blockchain">Blockchain</option>
+        <option value="Digital Marketing">Digital Marketing</option>
+        <option value="UI/UX Design">UI/UX Design</option>
+        <option value="Robotics">Robotics</option>
+        <option value="Finance and Investing">Finance and Investing</option>
+      </select>
+      <button id="filter-submit-btn">Submit</button>
+    </section>
+    <section id="course-list">
+      <!-- Courses will be dynamically loaded here -->
+    </section>
+    <button id="checkout-btn">Checkout</button>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>

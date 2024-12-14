@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badge Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Badge Page</h1>
+        <div id="badge-sections">
+            <!-- Sections will be dynamically rendered -->
+        </div>
+    </div>
+
+    <!-- Admin Controls -->
+    <div class="admin-controls">
+        <h2>Admin Panel</h2>
+        <label for="badge-type">Badge Type:</label>
+        <select id="badge-type">
+            <option value="topContributor">Top Contributor List</option>
+            <option value="verifiedUser">Verified User List</option>
+            <option value="mentor">Mentor List</option>
+            <option value="activeParticipant">Active Participant List</option>
+            <option value="topLearner">Top Learner List</option>
+            <option value="skillSharer">Skill Sharer List</option>
+            <option value="risingStar">Rising Star List</option>
+        </select>
+        <label for="new-entry">Add Name:</label>
+        <input type="text" id="new-entry" placeholder="Enter name">
+        <button id="add-entry-btn">Add Entry</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

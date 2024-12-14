@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Sidebar Section -->
+        <aside class="sidebar">
+            <img src="images/profile.jpg" alt="Profile Picture" class="profile-picture">
+            <h1>Jennifer Jenny</h1>
+            <p class="tagline">"Do Your Best & Forget the Rest"</p>
+            <div class="stats">
+                <div>
+                    <h3>18</h3>
+                    <p>Earned Coins</p>
+                </div>
+                <div>
+                    <h3>0</h3>
+                    <p>Contacts</p>
+                </div>
+                <div>
+                    <h3>18</h3>
+                    <p>Discussions</p>
+                </div>
+            </div>
+            <!-- Exchange Coins Button -->
+            <a href="courselist/courselist.html">
+                <button class="exchange-btn">Exchange Coins</button>
+            </a>
+            <a href="subscription/subscription.html">
+                    <button class="exchange-btn">Get Coins</button>
+            </a>
+        </aside>
+        
+
+        <!-- Main Content Section -->
+        <main class="main-content">
+            <!-- Navigation Tabs -->
+            <nav class="tabs">
+                <button class="tab active" onclick="showTab('about')">About Me</button>
+                <button class="tab" onclick="showTab('courses')">Uploaded Courses</button>
+                <button class="tab" onclick="showTab('My courses')">My Courses</button>
+                <button class="tab" onclick="showTab('edit-profile')">Edit Profile</button>
+            </nav>
+
+            <!-- About Me Section -->
+            <section id="about" class="tab-content active">
+                <h2>About Me</h2>
+                <p><strong>Interests:</strong> Cricket, Volleyball, Gaming, Badminton, Traveling</p>
+                <p><strong>Department & Institution:</strong> CSE, DIU Smart City</p>
+                <p><strong>Location:</strong> Datta Para, Asulia, Dhaka, Bangladesh</p>
+            </section>
+
+            <!-- Courses Section -->
+            <section id="courses" class="tab-content">
+                <h2>Courses</h2>
+                <ul class="courses-list">
+                    <li><strong>Computer Networks (Fall 2024):</strong> 57% Complete</li>
+                    <li><strong>Computer Networks Lab:</strong> 45% Complete</li>
+                    <li><strong>Digital Electronics (Spring 2024):</strong> 93% Complete</li>
+                    <li><strong>Digital Electronics Lab:</strong> 88% Complete</li>
+                    <li><strong>Introduction to Data Science:</strong> 100% Complete</li>
+                    <li><strong>Research and Innovation-SS (Spring 2024):</strong> 16% Complete</li>
+                </ul>
+            </section>
+            <section id="My courses" class="tab-content">
+                <h2>Courses</h2>
+                <ul class="courses-list">
+                    <li><strong>Computer Networks (Fall 2024):</strong> 57% Complete</li>
+                    <li><strong>Computer Networks Lab:</strong> 45% Complete</li>
+                    <li><strong>Digital Electronics (Spring 2024):</strong> 93% Complete</li>
+                    <li><strong>Digital Electronics Lab:</strong> 88% Complete</li>
+                    <li><strong>Introduction to Data Science:</strong> 100% Complete</li>
+                    <li><strong>Research and Innovation-SS (Spring 2024):</strong> 16% Complete</li>
+                </ul>
+            </section>
+
+            <!-- Edit Profile Section -->
+            <section id="edit-profile" class="tab-content">
+                <h2>Edit Profile</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" value="SM Golam">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" value="Azam">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" value="golam15-4654@diu.edu.bd">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City/Town</label>
+                        <input type="text" id="city" value="Dhaka">
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input type="text" id="country" value="Bangladesh">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description">Do Your Best & Forget the Rest</textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Save Changes</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

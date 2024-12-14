@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Subscription Page</h1>
+        <form id="subscription-form" action="transaction.html" method="GET">
+            <!-- Subscription ID -->
+            <div class="form-group">
+                <label for="subscription-id">Subscription ID</label>
+                <input type="text" id="subscription-id" name="subscription_id" placeholder="Enter Subscription ID" required>
+            </div>
+
+            <!-- User ID -->
+            <div class="form-group">
+                <label for="user-id">User ID</label>
+                <input type="text" id="user-id" name="user_id" placeholder="Enter User ID" required>
+            </div>
+
+            <!-- Plan Type -->
+            <div class="form-group">
+                <label for="plan-type">Plan Type</label>
+                <select id="plan-type" name="plan_type" required>
+                    <option value="">Select Plan</option>
+                    <option value="free">Free</option>
+                    <option value="premium">Premium</option>
+                </select>
+            </div>
+
+            <!-- Payment Method (only for Premium) -->
+            <div id="payment-section" class="form-group hidden">
+                <label for="payment-method">Payment Method</label>
+                <select id="payment-method" name="payment_method">
+                    <option value="">Select Payment Method</option>
+                    <option value="credit-card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                </select>
+            </div>
+
+            <!-- Start Date -->
+            <div class="form-group">
+                <label for="start-date">Start Date</label>
+                <input type="date" id="start-date" name="start_date" required>
+            </div>
+
+            <!-- End Date -->
+            <div class="form-group">
+                <label for="end-date">End Date</label>
+                <input type="date" id="end-date" name="end_date" required>
+            </div>
+
+            <!-- Status -->
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" name="status" required>
+                    <option value="">Select Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

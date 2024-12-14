@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Application - Skill Swap</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="certificate-container">
+        <div class="form-wrapper">
+            <h1>Apply for Your Certificate</h1>
+            <p>Showcase your skills and achievements with a certified Skill Swap Certificate.</p>
+            <form id="certificate-form" action="certificate-success.html" method="POST">
+                <!-- User ID -->
+                <div class="form-group">
+                    <label for="user-id">Email</label>
+                    <input type="text" id="user-id" name="user_id" placeholder="Enter Your Email id" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-id">User ID</label>
+                    <input type="text" id="user-id" name="user_id" placeholder="Enter Your User ID" required>
+                </div>
+
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full_name" placeholder="Enter Your Full Name" required>
+                </div>
+
+                <!-- Skill/Topic -->
+                <div class="form-group">
+                    <label for="skill">Skill/Topic</label>
+                    <input type="text" id="skill" name="skill" placeholder="Skill/Topic for Certificate" required>
+                </div>
+
+                <!-- Reason for Application -->
+                <div class="form-group">
+                    <label for="reason">Reason for Application</label>
+                    <textarea id="reason" name="reason" rows="5" placeholder="Why do you need this certificate?" required></textarea>
+                </div>
+
+                <!-- Certificate Type -->
+                <div class="form-group">
+                    <label for="certificate-type">Certificate Type</label>
+                    <select id="certificate-type" name="certificate_type" required>
+                        <option value="">Select Certificate Type</option>
+                        <option value="completion">Completion Certificate</option>
+                        <option value="achievement">Achievement Certificate</option>
+                        <option value="excellence">Excellence Certificate</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="button" class="submit-btn" onclick="openEmail()">Apply Now</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

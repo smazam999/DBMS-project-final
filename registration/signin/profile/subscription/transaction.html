@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Transaction Page</h1>
+        <form id="transaction-form">
+            <!-- Transaction ID -->
+            <div class="form-group">
+                <label for="transaction-id">Transaction ID</label>
+                <input type="text" id="transaction-id" name="transaction_id" value="TID12345" readonly>
+            </div>
+
+            <!-- User ID -->
+            <div class="form-group">
+                <label for="user-id">User ID</label>
+                <input type="text" id="user-id" name="user_id" readonly>
+            </div>
+
+            <!-- Amount -->
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" name="amount" value="0" readonly>
+            </div>
+
+            <!-- Transaction Date -->
+            <div class="form-group">
+                <label for="transaction-date">Transaction Date</label>
+                <input type="date" id="transaction-date" name="transaction_date" readonly>
+            </div>
+
+            <!-- Status -->
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" name="status" required>
+                    <option value="pending">Pending</option>
+                    <option value="success">Success</option>
+                </select>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" placeholder="Enter description"></textarea>
+            </div>
+
+            <!-- Confirm Button -->
+            <button type="submit" class="submit-btn">Confirm Transaction</button>
+        </form>
+    </div>
+
+    <script src="transaction.js"></script>
+</body>
+</html>

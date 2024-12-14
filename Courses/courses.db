@@ -1,0 +1,83 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 03, 2024 at 02:13 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `skillswap`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courses`
+--
+
+CREATE TABLE `courses` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `category` text NOT NULL,
+  `tokens_required` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`id`, `name`, `category`, `tokens_required`) VALUES
+(1, 'HTML', 'Web Development', 10),
+(2, 'CSS', 'Web Development', 10),
+(3, 'Blockchain Basics', 'Blockchain', 20),
+(4, 'HTML', 'Web Development', 10),
+(5, 'CSS', 'Web Development', 10),
+(6, 'JavaScript', 'Web Development', 15),
+(7, 'React', 'Web Development', 20),
+(8, 'Node.js', 'Web Development', 20),
+(9, 'Next.js', 'Web Development', 25),
+(10, 'Logo Design', 'Graphics Design', 10),
+(11, 'Web Design', 'Graphics Design', 10),
+(12, 'Motion Graphics', 'Graphics Design', 15),
+(13, 'Application Security', 'Cyber Security', 20),
+(14, 'Cloud Security', 'Cyber Security', 25),
+(15, 'Data Security', 'Cyber Security', 30),
+(16, 'Machine Learning', 'AI', 40),
+(17, 'Deep Learning', 'AI', 50);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `courses`
+--
+ALTER TABLE `courses`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `courses`
+--
+ALTER TABLE `courses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
